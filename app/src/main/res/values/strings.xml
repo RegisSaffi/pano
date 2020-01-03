@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">PANO</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_main">PANO</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Regis saffi</string>
+    <string name="nav_header_subtitle">0786115058</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_account">My account</string>
+    <string name="menu_history">History</string>
+    <string name="menu_payment">Payments</string>
+
+    <string name="menu_settings">Settings</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_about">About us</string>
+    <string name="menu_logout">Logout</string>
+</resources>
