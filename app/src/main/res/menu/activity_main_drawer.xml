@@ -6,29 +6,21 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_map_black_24dp"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_account"
-            android:icon="@drawable/ic_account_box_black_24dp"
-            android:title="@string/menu_account" />
+
         <item
             android:id="@+id/nav_history"
             android:icon="@drawable/ic_history_black_24dp"
             android:title="@string/menu_history" />
         <item
-            android:id="@+id/nav_payment"
-            android:icon="@drawable/ic_payment_black_24dp"
-            android:title="@string/menu_payment" />
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_account_box_black_24dp"
+            android:title="@string/menu_account" />
     </group>
 
     <item android:title="More options">
         <menu>
-
-            <item
-                android:id="@+id/nav_settings"
-                android:icon="@drawable/ic_menu_manage"
-                android:title="@string/menu_settings" />
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"

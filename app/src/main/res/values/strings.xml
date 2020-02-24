@@ -18,4 +18,23 @@
     <string name="menu_share">Share</string>
     <string name="menu_about">About us</string>
     <string name="menu_logout">Logout</string>
+
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+    <string name="error_player">Problem playing!</string>
+
+    <string name="slide_1_title">Welcome!</string>
+    <string name="slide_1_desc">Hello, i am called BAZA i can help you to get most of things you need, and talk to you too!</string>
+    <string name="slide_2_title">Location aware!</string>
+    <string name="slide_2_desc">Let me access your location to show you most important things near you on the go!</string>
+
+    <string name="slide_3_title">Fun!</string>
+    <string name="slide_3_desc">Feel free to talk to me anything you want, and let\'s have fun together!</string>
+
+    <string name="slide_4_title">Conversational!</string>
+    <string name="slide_4_desc">I am sociable app with everyone,all i do is helping people to get what they want through conversation!</string>
+
 </resources>
