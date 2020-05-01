@@ -28,6 +28,16 @@ import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import es.dmoral.toasty.Toasty;
 import mehdi.sakout.fancybuttons.FancyButton;
 
 public class IntroActivity extends AppCompatActivity {
@@ -145,7 +155,41 @@ public class IntroActivity extends AppCompatActivity {
 
         });
 
+        //addRoutes();
     }
+
+
+
+    void addRoutes(){
+
+        CollectionReference reference= FirebaseFirestore.getInstance().collection("routes");
+
+        String routes="[{\"name\": \"Kabuga-mulindi-remera-sonatubes-rwandex-nyabugogo\", \"zone\": \"ZONE I\"}, {\"name\": \"Kabuga-mulindi-remera-sonatubes-rwandex-cbd\", \"zone\": \"ZONE I\"}, {\"name\": \"Kanombe-airport-remera-chez lando-kacyiru-nyabugogo\", \"zone\": \"ZONE I\"}, {\"name\": \"Kanombe-airport-remera-sonatubes-rwandex-cdb\", \"zone\": \"ZONE I\"}, {\"name\": \"Kanombe-airport-remera-chez lando-kimihurura-cbd\", \"zone\": \"ZONE I\"}, {\"name\": \"Kicukiro-sonatubes-remera-airport-kanombe\", \"zone\": \"ZONE I\"}, {\"name\": \"Masaka-masaka hospital-kabuga\", \"zone\": \"ZONE I\"}, {\"name\": \"Masaka-rusheshe\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-12-masoro(uaac)\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-nyarugunga-busanza\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-15-ndera-musave\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-chez lando-kacyiru-nyabugogo\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-rubilizi-busanza\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-mulindi-masaka\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-sonatubes-kicukiro centre-nyanza\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-sonatubes-rwandex-cbd\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-sonatubes-rwandex-gikondo-bwerankoli\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-12-sez\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-kanombe-kibaya\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-mulindi-kabuga\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-sonatubes-rwandex-nyabugogo\", \"zone\": \"ZONE I\"}, {\"name\": \"Rubilizi-remera-chez lando-kacyiru-nyabugogo\", \"zone\": \"ZONE I\"}, {\"name\": \"Rubilizi-remera-sonatubes-rwandex-cbd\", \"zone\": \"ZONE I\"}, {\"name\": \"Remera-mulindi-gasogi (cyaruzinge)\", \"zone\": \"ZONE I\"}, {\"name\": \"Bwerankoli-gikondo-segeem-rugunga-cbd\", \"zone\": \"ZONE II\"}, {\"name\": \"Bwerankoli-nyenyeli-segeem-kanogo-nyabugogo\", \"zone\": \"ZONE II\"}, {\"name\": \"Bwerankoli-segeem-rwandex-sonatubes-kimironko\", \"zone\": \"ZONE II\"}, {\"name\": \"Gahanga-mugendo-nyaruyenzi\", \"zone\": \"ZONE II\"}, {\"name\": \"Gikondo-rebero-nyarurama\", \"zone\": \"ZONE II\"}, {\"name\": \"Nyanza-kicukiro centre-zion temple-rwandex-nyabugogo\", \"zone\": \"ZONE II\"}, {\"name\": \"Nyanza-kicukiro centre-zion temple-magerwa-bwerankoli\", \"zone\": \"ZONE II\"}, {\"name\": \"Nyanza-kicukiro centre-kagarama-muyange\", \"zone\": \"ZONE II\"}, {\"name\": \"Nyanza-gahanga\", \"zone\": \"ZONE II\"}, {\"name\": \"Nyanza-karembure\", \"zone\": \"ZONE II\"}, {\"name\": \"Nyanza-kicukiro centre-sonatubes-gishushu-kacyiru\", \"zone\": \"ZONE II\"}, {\"name\": \"Nyanza-kicukiro centre-sonatubes-chez lando-kimironko\", \"zone\": \"ZONE II\"}, {\"name\": \"Nyanza-kicukiro centre-gatenga-magerwa-cbd\", \"zone\": \"ZONE II\"}, {\"name\": \"Nyanza-centre-gatenga-magerwa-nyabugogo\", \"zone\": \"ZONE II\"}, {\"name\": \"St joseph-centre de sante-sonatubes-rwandex-cbd\", \"zone\": \"ZONE II\"}, {\"name\": \"St joseph-cs-sonatubes-rwandex-nyabugogo\", \"zone\": \"ZONE II\"}, {\"name\": \"Bumbogo-gikomero-rutunga\", \"zone\": \"ZONE III\"}, {\"name\": \"Bumbogo-kimironko-reb (controle technique)-chez lando-kacyiru-nyabugogo\", \"zone\": \"ZONE III\"}, {\"name\": \"Bumbogo-kimironko-reb (controle technique)-chez lando-kimihurura-cbd\", \"zone\": \"ZONE III\"}, {\"name\": \"Bumbogo-zindiro-mushimire-kimironko\", \"zone\": \"ZONE III\"}, {\"name\": \"Cbd-kimihurura-kbc-kacyiru-mama sportif-gacuriro-kagugu\", \"zone\": \"ZONE III\"}, {\"name\": \"Cbd-kimihurura-rdb-nyarutarama-kinyinya\", \"zone\": \"ZONE III\"}, {\"name\": \"Cbd-kinamba-gakinjiro-fawe-kagugu-batsinda\", \"zone\": \"ZONE III\"}, {\"name\": \"Cbd-kinamba-ulk-fawe-kagugu\", \"zone\": \"ZONE III\"}, {\"name\": \"Kabuga-mulindi-12-kimironko-kibagabaga-utexrwa-kinamba-nyabugogo\", \"zone\": \"ZONE III\"}, {\"name\": \"Kimironko-12-mulindi-kabuga\", \"zone\": \"ZONE III\"}, {\"name\": \"Kimironko-12-mulindi-masaka\", \"zone\": \"ZONE III\"}, {\"name\": \"Kimironko-kibagabaga-kagugu-batsinda\", \"zone\": \"ZONE III\"}, {\"name\": \"Kimironko-kibagabaga-kinyinya\", \"zone\": \"ZONE III\"}, {\"name\": \"Kimironko-kibagabaga-utexrwa-kinamba-nyabugogo\", \"zone\": \"ZONE III\"}, {\"name\": \"Kimironko-kie-bibare-mushumba mwiza-remera\", \"zone\": \"ZONE III\"}, {\"name\": \"Kimironko-kie-stadium-chez lando-kacyiru-nyabugogo\", \"zone\": \"ZONE III\"}, {\"name\": \"Kimironko-kie-stadium-chez lando-kimihurura-cbd\", \"zone\": \"ZONE III\"}, {\"name\": \"Kimironko-zindiro-bumbogo-sez\", \"zone\": \"ZONE III\"}, {\"name\": \"Kimironko-zindiro-masizi\", \"zone\": \"ZONE III\"}, {\"name\": \"Kinyinya-birembo-kami\", \"zone\": \"ZONE III\"}, {\"name\": \"Nyabugogo-kinamba-gakinjiro-fawe-batsinda\", \"zone\": \"ZONE III\"}, {\"name\": \"Nyabugogo-kinamba-kagugu-batsinda-gasanze\", \"zone\": \"ZONE III\"}, {\"name\": \"Nyabugogo-kinamba-ulk-kagugu\", \"zone\": \"ZONE III\"}, {\"name\": \"Nyabugogo-kinamba-utexrwa-kinyinya\", \"zone\": \"ZONE III\"}, {\"name\": \"Remera-chez lando-nyarutarama-kagugu-batsinda\", \"zone\": \"ZONE III\"}, {\"name\": \"Cbd-down town-gakinjiro-gitega-biryogo-rafiki-ku rya nyuma\", \"zone\": \"ZONE IV\"}, {\"name\": \"Down town-nyabugogo\", \"zone\": \"ZONE IV\"}, {\"name\": \"Down town-nyabugogo-gatsata-karuruma-nyacyonga\", \"zone\": \"ZONE IV\"}, {\"name\": \"Down town-nyabugogo-kimisagara-nyakabanda-tapis rouge-ku rya nyuma\", \"zone\": \"ZONE IV\"}, {\"name\": \"Nyacyonga-nduba\", \"zone\": \"ZONE IV\"}, {\"name\": \"Nyabugogo-giticyinyoni-nzove(skol)-rutonde\", \"zone\": \"ZONE IV\"}, {\"name\": \"Nyabugogo-kamuhanda-ruyenzi\", \"zone\": \"ZONE IV\"}, {\"name\": \"Nyabugogo-karuruma-gihogwe-jali\", \"zone\": \"ZONE IV\"}, {\"name\": \"Nyabugogo-karuruma-nyacyonga\", \"zone\": \"ZONE IV\"}, {\"name\": \"Nyabugogo-ruyenzi-bishenyi\", \"zone\": \"ZONE IV\"}, {\"name\": \"Nyacyonga-rutunga\", \"zone\": \"ZONE IV\"}, {\"name\": \"Nyamirambo (rya nyuma)-40-biryogo-csk-kanogo-nyabugogo\", \"zone\": \"ZONE IV\"}, {\"name\": \"Nyamirambo-rwarutabura-mageragere\", \"zone\": \"ZONE IV\"}, {\"name\": \"Nyabugogo-ruyenzi-runda (gihara)\", \"zone\": \"ZONE IV\"}]";
+
+        try{
+            JSONArray array=new JSONArray(routes);
+            Toasty.info(getApplicationContext(),"Decoding...").show();
+
+
+            for(int a=0;a<array.length();a++){
+
+                JSONObject object=array.getJSONObject(a);
+
+                Map<String,String> route=new HashMap<>();
+                route.put("name",object.getString("name"));
+                route.put("zone",object.getString("zone"));
+
+                reference.document().set(route);
+
+            }
+        }catch (Exception e){
+
+            e.printStackTrace();
+            Toasty.error(getApplicationContext(),"Error").show();
+
+        }
+    }
+
 
     private void addBottomDots(int currentPage) {
         dots = new TextView[layouts.length];

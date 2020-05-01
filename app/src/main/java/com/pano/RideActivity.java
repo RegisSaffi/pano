@@ -116,7 +116,7 @@ public class RideActivity extends AppCompatActivity implements OnMapReadyCallbac
     String destinationName, destinationId, originName;
     List<LatLng> currentPoly;
     Polyline polyline1;
-    TextView timeTv, distanceTv, nameTv, costTv, modelTv, seatsTv;
+    TextView timeTv, distanceTv, nameTv, costTv, modelTv, seatsTv,routeTv;
     ProgressDialog progressDialog;
     DocumentSnapshot driverDocument;
     FancyButton requestBtn;
@@ -194,6 +194,7 @@ public class RideActivity extends AppCompatActivity implements OnMapReadyCallbac
         distanceTv = findViewById(R.id.distance);
         seatsTv = findViewById(R.id.seats);
         requestBtn = findViewById(R.id.request);
+        routeTv=findViewById(R.id.route);
 
         toggle = findViewById(R.id.toggle);
 
@@ -326,6 +327,8 @@ public class RideActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 nameTv.setText(fname + " " + lname);
                 modelTv.setText((String) driv.get("model"));
+                routeTv.setText((String) driv.get("routes"));
+
                 long sts = (long) driv.get("available_seats");
                 seatsTv.setText(sts + "");
                 findViewById(R.id.progress).setVisibility(View.GONE);

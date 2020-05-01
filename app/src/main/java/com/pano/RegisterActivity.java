@@ -16,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
@@ -29,6 +30,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -53,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     FancyButton register;
 
-    TextInputEditText fname, lname, email, phone, seats, plate, model;
+    TextInputEditText fname, lname, email, phone, seats, plate, model,route;
 
     ProgressDialog progress;
     RadioGroup gender;
@@ -85,6 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
         model = findViewById(R.id.model);
         seats = findViewById(R.id.seats);
         plate = findViewById(R.id.plate);
+        route=findViewById(R.id.route);
 
         driver = findViewById(R.id.driver);
 
@@ -112,9 +115,27 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         register.setOnClickListener(v -> validate());
+        route.setOnClickListener(v->{
+
+            Intent in=new Intent(getApplicationContext(),ChooseRouteActivity.class);
+            startActivityForResult(in,0);
+
+        });
 
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode==RESULT_OK && requestCode==0){
+            String name=data.getStringExtra("name");
+
+            route.setText(name);
+
+        }
+    }
 
     void validate() {
         if (fname.getText().toString().equals("")) {
@@ -130,6 +151,8 @@ public class RegisterActivity extends AppCompatActivity {
                 Toasty.error(getApplicationContext(), "Enter number of seats in your car").show();
             } else if (plate.getText().toString().equals("")) {
                 Toasty.error(getApplicationContext(), "Enter plate number of your car").show();
+            } else if (route.getText().toString().equals("")) {
+                Toasty.error(getApplicationContext(), "Select your route").show();
             } else {
                 register();
             }
@@ -156,6 +179,7 @@ public class RegisterActivity extends AppCompatActivity {
             userDriver.put("seats", seats.getText().toString());
             userDriver.put("plate", plate.getText().toString());
             userDriver.put("available_seats", 0);
+            userDriver.put("routes",route.getText().toString());
 
             user.put("driver", userDriver);
         }

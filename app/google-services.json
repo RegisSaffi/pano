@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "3021517163",
+    "firebase_url": "https://pano-app-1578315047846.firebaseio.com",
+    "project_id": "pano-app-1578315047846",
+    "storage_bucket": "pano-app-1578315047846.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3021517163:android:2e6cbe79566c5bfc6edc2e",
+        "android_client_info": {
+          "package_name": "com.pano"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "3021517163-d8aes1fln9ctg7siagr12pau2d47vk1q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pano",
+            "certificate_hash": "3d3cd27ec3e05f6c60c4e7216aa50d71fd8f92f2"
+          }
+        },
+        {
+          "client_id": "3021517163-795u6okcveki9luvuid5467h8kna1cpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3oJj1ebrokzm6T0nbtyBhSljHf4OkBHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "3021517163-795u6okcveki9luvuid5467h8kna1cpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

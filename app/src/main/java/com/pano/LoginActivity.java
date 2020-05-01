@@ -139,6 +139,8 @@ public class LoginActivity extends AppCompatActivity {
             txtPhone.setText(phn);
         }
 
+
+
         //--------------------------------------------------------------------------------------------------
 
         // [START config_signin]
@@ -161,6 +163,17 @@ public class LoginActivity extends AppCompatActivity {
 
 
         });
+
+
+        if(!new PrefManager(this).getPhone().equals("none")){
+
+            Intent in = new Intent(getApplicationContext(), RegisterActivity.class);
+            in.putExtra("user", false);
+            in.putExtra("phone", new PrefManager(this).getPhone());
+
+            startActivity(in);
+            finish();
+        }
 
         btnLogin.setOnClickListener(v -> {
 

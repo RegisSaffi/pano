@@ -375,6 +375,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     String id = (String) document.getId();
                     boolean on = (boolean) document.get("online");
 
+                    Map<String, Object> driv = (Map<String, Object>) document.get("driver");
+
 
                     Map<String, Double> loc1 = (Map<String, Double>) document.get("coordinates");
                     LatLng loc = new LatLng(loc1.get("latitude"), loc1.get("longitude"));
@@ -383,8 +385,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     MarkerOptions markerOptions = new MarkerOptions();
                     markerOptions.position(latLng);
                     markerOptions.title(name1 + " " + name2);
-                    markerOptions.snippet("Online");
-                    markerOptions.title(new PrefManager(getApplicationContext()).getName());
+
+                    long sts = (long) driv.get("available_seats");
+                    markerOptions.snippet(sts+" Seats available");
 
                     markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
 
@@ -396,7 +399,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 break;
                             case MODIFIED:
                                 Log.d("TAg", "Modified city: " + dc.getDocument().getData());
-
                                 break;
                             case REMOVED:
                                 Log.d("Tag", "Removed city: " + dc.getDocument().getData());
@@ -461,8 +463,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
-
-
     }
 
     @Override
